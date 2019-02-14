@@ -3,8 +3,8 @@ node {
     git 'https://github.com/grupo-exito-ecommerce/maven-project.git'
   }
   stage('SonarQube analysis') {
-    def mvnHome = tool name: 'maven-3', type: 'maven'
-    withSonarQubeEnv('sonar') {
+    def mvnHome = tool name: 'localMaven', type: 'maven'
+    withSonarQubeEnv('localSonar') {
       sh "${mvnHome}/bin/mvn sonar:sonar"
       }
     }
